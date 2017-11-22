@@ -1,0 +1,18 @@
+---
+- hosts: nodes
+  become: true
+
+  tasks:
+  - name: Set authorized key took from file
+    authorized_key:
+      user: si81hica
+      state: present
+      key: "{{ lookup('file', '/home/si81hica/.ssh/id_rsa.pub') }}"
+ 
+  - name: Set authorized key took from file
+    authorized_key:
+      user: ri22bytu
+      state: present
+      key: "{{ lookup('file', '/home/ri22bytu/.ssh/id_rsa.pub') }}"
+
+ 

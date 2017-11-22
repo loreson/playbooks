@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    
+     - lineinfile: 
+        path: /etc/fstab
+        line: 192.168.123.100:/share /share nfs rw 0 0
+  
