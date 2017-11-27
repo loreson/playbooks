@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - git:
+        repo: 'https://github.com/cea-hpc/modules.git'
+        dest: /home/si81hica/modules
+        clone: yes
+    - shell: ./configure
+        chdir:/home/si81hica/modules
+#    - shell: make
+##       chdir: /home/si81hica/modules
+#   - shell: make install
