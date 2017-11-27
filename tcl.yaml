@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: yum-tcl
+      yum: name=tcl
+  

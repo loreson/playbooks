@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: yum-devtools
+      yum: name="@development tools"
+  
