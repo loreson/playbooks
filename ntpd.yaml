@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: ntpdate-yum
+      yum: name=ntp
+    - name: ntpd-start
+      service: name=ntpd enabled=yes state=started  
