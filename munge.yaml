@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: yum-mange
+      yum: name={{ item }}
+      with_items:
+      - munge.x86_64
+      - munge-devel.x86_64
+    - name: copy
+      shell: cp /share/munge.key /etc/munge/munge.key
+    - name: chown
+      shell: chown munge:student /etc/munge/munge.key
+    - name: chmod 
+      shell: chmod 600 /etc/munge/munge.key
+    - name: start
+      service: name=munge enabled=yes state=started
