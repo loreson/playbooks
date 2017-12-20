@@ -5,5 +5,8 @@
   tasks:
     - name: copy
       shell: cp /opt/apps/slurm/17.02.9/etc/slurm.conf /etc/slurm.conf
+    - name: copy2 
+      shell: cp /share/cgroup* /etc/
+
     - name: enable_slurm
       service: name=slurmd enabled=yes state=started
