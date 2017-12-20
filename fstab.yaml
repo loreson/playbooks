@@ -2,9 +2,10 @@
 - hosts: nodes
   become: true
 
-  tasks:
-    
-     - lineinfile: 
+  tasks:    
+    - lineinfile: 
         path: /etc/fstab
-        line: 192.168.123.100:/share /share nfs rw 0 0
-  
+        line: "192.168.123.100:{{ item.exportDir }} {{ item.mountDir }} nfs rw 0 0"
+      with_items:
+        - { exportDir: '/share', mountDir: '/share' }
+        - { exportDir: '/opt/apps', mountDir: '/opt/apps' }

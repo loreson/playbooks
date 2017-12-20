@@ -5,10 +5,8 @@
   tasks:
     - git:
         repo: 'https://github.com/cea-hpc/modules.git'
-        dest: /home/si81hica/modules
+        dest: /home/ri22bytu/modules
         clone: yes
-    - shell: ./configure
-        chdir:/home/si81hica/modules
-#    - shell: make
-##       chdir: /home/si81hica/modules
-#   - shell: make install
+    - shell: ./configure && make && make install
+      args:
+        chdir: /home/ri22bytu/modules
